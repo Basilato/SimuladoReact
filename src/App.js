@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import Quiz from './lib/Quiz';
+import quiz from './quiz';
 
 function App() {
+  const [quizResult, setQuizResult] = useState();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Quiz
+    quiz={quiz}
+    shuffle
+    showInstantFeedback
+    // continueTillCorrect
+    onComplete={setQuizResult}
+    onQuestionSubmit={(obj) => console.log('user question results:', obj)}
+    disableSynopsis
+    // revealAnswerOnSubmit
+    // allowNavigation
+  />
   );
 }
 
