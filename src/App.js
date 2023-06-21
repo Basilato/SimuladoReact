@@ -5,6 +5,8 @@ import quiz from './quiz';
 
 function App() {
   const [quizResult, setQuizResult] = useState();
+  console.log(quizResult)
+  console.log(localStorage.getItem('userID'))
   return (
     <Quiz
     quiz={quiz}
